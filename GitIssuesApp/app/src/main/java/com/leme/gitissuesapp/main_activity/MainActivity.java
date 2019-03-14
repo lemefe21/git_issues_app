@@ -15,15 +15,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends BaseAppCompatActivity implements MainContract.MainView {
 
     private MainPresenter mPresenter;
 
     @BindView(R.id.hello)
     TextView mTextView;
-
-    @BindView(R.id.progressBar)
-    ProgressBar mLoadingProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,26 +28,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
 
         initUi();
-
     }
 
     private void initUi() {
-
         ButterKnife.bind(this);
 
         mPresenter = new MainPresenter(this);
         mPresenter.requestDataFromServer();
-
-    }
-
-    @Override
-    public void showProgress() {
-        mLoadingProgress.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideProgress() {
-        mLoadingProgress.setVisibility(View.GONE);
     }
 
     @Override
@@ -58,10 +42,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mTextView.setText(String.valueOf(issuesList.get(0).getId()));
     }
 
-    @Override
-    public void onResponseFailure(Throwable throwable) {
-        Toast.makeText(this, "Error...", Toast.LENGTH_LONG).show();
-    }
 
     @Override
     protected void onDestroy() {

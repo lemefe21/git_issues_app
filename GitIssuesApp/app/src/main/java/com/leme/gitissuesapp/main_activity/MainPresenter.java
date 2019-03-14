@@ -6,10 +6,10 @@ import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.Model.OnFinishListener {
 
-    private MainContract.View view;
+    private MainContract.MainView view;
     private MainContract.Model model;
 
-    public MainPresenter(MainContract.View view) {
+    public MainPresenter(MainContract.MainView view) {
         this.view = view;
         model = new MainModel();
     }
@@ -24,7 +24,8 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Model
 
     @Override
     public void onFailure(Throwable throwable) {
-        view.onResponseFailure(throwable);
+
+        view.showError(ExceptionHandler.FormatError(throwable));
         if(view != null) {
             view.hideProgress();
         }
@@ -37,9 +38,14 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Model
 
     @Override
     public void requestDataFromServer() {
-        if(view != null) {
-            view.showProgress();
+        try{
+            if(view != null) {
+                view.showProgress();
+            }
+            model.getIssuesList(this);
+        }catch (Exception e){
+            this.view.showError(ExceptionHandler.FormatError(e));
         }
-        model.getIssuesList(this);
+
     }
 }
