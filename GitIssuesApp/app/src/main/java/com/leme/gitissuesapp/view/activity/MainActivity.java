@@ -1,7 +1,7 @@
 package com.leme.gitissuesapp.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends AppCompatActivity implements MainContract.MainView {
 
     private MainPresenter mPresenter;
 
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private void initUi() {
 
         ButterKnife.bind(this);
-
         mPresenter = new MainPresenter(this);
         mPresenter.requestDataFromServer();
 
@@ -56,13 +55,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void setDataToRecyclerView(List<Issues> issuesList) {
-        mTextView.setText(String.valueOf(issuesList.get(0).getId()));
+    public void showError(int error) {
+        Toast.makeText(this, getString(error), Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
-        Toast.makeText(this, "Error...", Toast.LENGTH_LONG).show();
+    public void setDataToRecyclerView(List<Issues> issuesList) {
+        mTextView.setText(String.valueOf(issuesList.get(0).getId()));
     }
 
     @Override

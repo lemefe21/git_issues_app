@@ -1,17 +1,21 @@
 package com.leme.gitissuesapp.presenter;
 
 import com.leme.gitissuesapp.contract.MainContract;
+import com.leme.gitissuesapp.handler.ExceptionHandler;
 import com.leme.gitissuesapp.service.MainService;
 import com.leme.gitissuesapp.model.Issues;
 
 import java.util.List;
 
+import retrofit2.HttpException;
+import retrofit2.Response;
+
 public class MainPresenter implements MainContract.Presenter, MainContract.Service.RequestListener {
 
-    private MainContract.View view;
+    private MainContract.MainView view;
     private MainContract.Service service;
 
-    public MainPresenter(MainContract.View view) {
+    public MainPresenter(MainContract.MainView view) {
         this.view = view;
         service = new MainService();
     }
@@ -19,17 +23,14 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
     @Override
     public void success(List<Issues> issuesList) {
         view.setDataToRecyclerView(issuesList);
-        if(view != null) {
-            view.hideProgress();
-        }
+        view.hideProgress();
+
     }
 
     @Override
     public void error(Throwable throwable) {
-        view.onResponseFailure(throwable);
-        if(view != null) {
-            view.hideProgress();
-        }
+        view.showError(ExceptionHandler.FormatErrorToUi(throwable));
+        view.hideProgress();
     }
 
     @Override
@@ -39,9 +40,12 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
 
     @Override
     public void requestDataFromServer() {
-        if(view != null) {
-            view.showProgress();
+        view.showProgress();
+        try {
+            service.getIssues(this);
+        } catch (Exception exception) {
+            view.hideProgress();
+            this.view.showError(ExceptionHandler.FormatErrorToUi(exception));
         }
-        service.getIssues(this);
     }
 }

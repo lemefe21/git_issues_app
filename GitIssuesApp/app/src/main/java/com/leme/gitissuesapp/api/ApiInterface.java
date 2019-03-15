@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("/repos/JetBrains/kotlin/issues")
+    @GET("/repos/JetBrainsx/kotlin/issues")
     Call<List<Issues>> getIssuesList();
 
 }

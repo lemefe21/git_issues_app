@@ -17,13 +17,11 @@ public interface MainContract {
 
     }
 
-    interface View {
-
+    interface MainView {
         void showProgress();
         void hideProgress();
+        void showError(int error);
         void setDataToRecyclerView(List<Issues> issuesList);
-        void onResponseFailure(Throwable throwable);
-
     }
 
     interface Presenter {
