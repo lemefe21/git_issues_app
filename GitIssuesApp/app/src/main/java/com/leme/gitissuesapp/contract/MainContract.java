@@ -22,7 +22,7 @@ public interface MainContract {
         void showProgress();
         void hideProgress();
         void setDataToRecyclerView(List<Issues> issuesList);
-        void onResponseFailure(Throwable throwable);
+        void showError(int error);
 
     }
 

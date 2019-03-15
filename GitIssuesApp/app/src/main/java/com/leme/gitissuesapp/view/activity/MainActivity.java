@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void onResponseFailure(Throwable throwable) {
-        Toast.makeText(this, "Error...", Toast.LENGTH_LONG).show();
+    public void showError(int error) {
+        Toast.makeText(this, getString(error), Toast.LENGTH_LONG).show();
     }
 
     @Override

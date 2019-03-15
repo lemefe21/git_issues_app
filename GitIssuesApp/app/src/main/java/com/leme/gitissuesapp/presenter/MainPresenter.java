@@ -1,6 +1,7 @@
 package com.leme.gitissuesapp.presenter;
 
 import com.leme.gitissuesapp.contract.MainContract;
+import com.leme.gitissuesapp.handler.ExceptionHandler;
 import com.leme.gitissuesapp.service.MainService;
 import com.leme.gitissuesapp.model.Issues;
 
@@ -19,17 +20,13 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
     @Override
     public void success(List<Issues> issuesList) {
         view.setDataToRecyclerView(issuesList);
-        if(view != null) {
-            view.hideProgress();
-        }
+        view.hideProgress();
     }
 
     @Override
     public void error(Throwable throwable) {
-        view.onResponseFailure(throwable);
-        if(view != null) {
-            view.hideProgress();
-        }
+        view.showError(ExceptionHandler.FormatErrorToUi(throwable));
+        view.hideProgress();
     }
 
     @Override
@@ -39,9 +36,11 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
 
     @Override
     public void requestDataFromServer() {
-        if(view != null) {
-            view.showProgress();
+        view.showProgress();
+        try {
+            service.getIssues(this);
+        } catch (Exception exception) {
+            this.view.showError(ExceptionHandler.FormatErrorToUi(exception));
         }
-        service.getIssues(this);
     }
 }
