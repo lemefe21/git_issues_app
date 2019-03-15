@@ -1,4 +1,4 @@
-package com.leme.gitissuesapp.main_activity;
+package com.leme.gitissuesapp.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leme.gitissuesapp.R;
+import com.leme.gitissuesapp.contract.MainContract;
+import com.leme.gitissuesapp.presenter.MainPresenter;
 import com.leme.gitissuesapp.model.Issues;
 
 import java.util.List;

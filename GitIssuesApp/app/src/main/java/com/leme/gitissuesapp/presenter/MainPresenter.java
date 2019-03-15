@@ -1,21 +1,23 @@
-package com.leme.gitissuesapp.main_activity;
+package com.leme.gitissuesapp.presenter;
 
+import com.leme.gitissuesapp.contract.MainContract;
+import com.leme.gitissuesapp.service.MainService;
 import com.leme.gitissuesapp.model.Issues;
 
 import java.util.List;
 
-public class MainPresenter implements MainContract.Presenter, MainContract.Model.OnFinishListener {
+public class MainPresenter implements MainContract.Presenter, MainContract.Service.RequestListener {
 
     private MainContract.View view;
-    private MainContract.Model model;
+    private MainContract.Service service;
 
     public MainPresenter(MainContract.View view) {
         this.view = view;
-        model = new MainModel();
+        service = new MainService();
     }
 
     @Override
-    public void onFinished(List<Issues> issuesList) {
+    public void success(List<Issues> issuesList) {
         view.setDataToRecyclerView(issuesList);
         if(view != null) {
             view.hideProgress();
@@ -23,7 +25,7 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Model
     }
 
     @Override
-    public void onFailure(Throwable throwable) {
+    public void error(Throwable throwable) {
         view.onResponseFailure(throwable);
         if(view != null) {
             view.hideProgress();
@@ -40,6 +42,6 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Model
         if(view != null) {
             view.showProgress();
         }
-        model.getIssuesList(this);
+        service.getIssues(this);
     }
 }

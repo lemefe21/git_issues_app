@@ -1,4 +1,4 @@
-package com.leme.gitissuesapp.main_activity;
+package com.leme.gitissuesapp.contract;
 
 import com.leme.gitissuesapp.model.Issues;
 
@@ -6,14 +6,14 @@ import java.util.List;
 
 public interface MainContract {
 
-    interface Model {
+    interface Service {
 
-        interface OnFinishListener {
-            void onFinished(List<Issues> issuesList);
-            void onFailure(Throwable t);
+        interface RequestListener {
+            void success(List<Issues> issuesList);
+            void error(Throwable throwable);
         }
 
-        void getIssuesList(OnFinishListener onFinishListener);
+        void getIssues(RequestListener requestListener);
 
     }
 
