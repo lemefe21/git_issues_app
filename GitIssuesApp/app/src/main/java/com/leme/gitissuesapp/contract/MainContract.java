@@ -1,6 +1,8 @@
 package com.leme.gitissuesapp.contract;
 
-import com.leme.gitissuesapp.model.Issues;
+import android.content.Context;
+
+import com.leme.gitissuesapp.model.Issue;
 
 import java.util.List;
 
@@ -9,7 +11,7 @@ public interface MainContract {
     interface Service {
 
         interface RequestListener {
-            void success(List<Issues> issuesList);
+            void success(List<Issue> issuesList);
             void error(Throwable throwable);
         }
 
@@ -21,7 +23,7 @@ public interface MainContract {
 
         void showProgress();
         void hideProgress();
-        void setDataToRecyclerView(List<Issues> issuesList);
+        void setDataToRecyclerView(List<Issue> issuesList);
         void showError(int error);
 
     }
@@ -30,6 +32,7 @@ public interface MainContract {
 
         void onDestroy();
         void requestDataFromServer();
+        void goToDetailsActivity(Context context, Issue issue);
 
     }
 

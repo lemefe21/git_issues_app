@@ -2,29 +2,32 @@ package com.leme.gitissuesapp.view.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leme.gitissuesapp.R;
+import com.leme.gitissuesapp.adapter.IssueItemAdapter;
 import com.leme.gitissuesapp.contract.MainContract;
 import com.leme.gitissuesapp.presenter.MainPresenter;
-import com.leme.gitissuesapp.model.Issues;
+import com.leme.gitissuesapp.model.Issue;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+public class MainActivity extends AppCompatActivity implements MainContract.View, IssueItemAdapter.IssueItemAdapterOnClickHandle {
 
     private MainPresenter mPresenter;
+    private IssueItemAdapter mIssueItemAdapter;
 
-    @BindView(R.id.hello)
-    TextView mTextView;
+    @BindView(R.id.activity_main_rv_issues_list)
+    RecyclerView mRecylerViewIssuesItem;
 
-    @BindView(R.id.progressBar)
+    @BindView(R.id.activity_main_pb_issues_list)
     ProgressBar mLoadingProgress;
 
     @Override
@@ -43,21 +46,28 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mPresenter = new MainPresenter(this);
         mPresenter.requestDataFromServer();
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecylerViewIssuesItem.setLayoutManager(layoutManager);
+        mIssueItemAdapter = new IssueItemAdapter(this, this);
+        mRecylerViewIssuesItem.setAdapter(mIssueItemAdapter);
+
     }
 
     @Override
     public void showProgress() {
+        mRecylerViewIssuesItem.setVisibility(View.GONE);
         mLoadingProgress.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
         mLoadingProgress.setVisibility(View.GONE);
+        mRecylerViewIssuesItem.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void setDataToRecyclerView(List<Issues> issuesList) {
-        mTextView.setText(String.valueOf(issuesList.get(0).getId()));
+    public void setDataToRecyclerView(List<Issue> issuesList) {
+        mIssueItemAdapter.setIssuesData(issuesList);
     }
 
     @Override
@@ -69,5 +79,10 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onDestroy() {
         super.onDestroy();
         mPresenter.onDestroy();
+    }
+
+    @Override
+    public void onClick(Issue issueClicked) {
+        Toast.makeText(this, "Issue user login: " + issueClicked.getUser().getLogin(), Toast.LENGTH_SHORT).show();
     }
 }
