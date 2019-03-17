@@ -1,6 +1,7 @@
 package com.leme.gitissuesapp.presenter;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.leme.gitissuesapp.contract.IssueDetailContract;
@@ -37,7 +38,11 @@ public class IssueDetailPresenter implements IssueDetailContract.Presenter {
 
     @Override
     public void goToUrlUser(IssueDetailActivity issueDetailActivity) {
-        Toast.makeText(issueDetailActivity, issue.getUrl(), Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(issue.getUrl()));
+        issueDetailActivity.startActivity(intent);
+
     }
 
     private void configureDetailsLayoutByIssueState(String state) {

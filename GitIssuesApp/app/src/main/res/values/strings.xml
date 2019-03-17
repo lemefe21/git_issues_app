@@ -8,4 +8,10 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="open_url_issue_github">Open Issue in Github</string>
+    <string name="user_login">User login</string>
+    <string name="issue_title">Issue title</string>
+    <string name="created_at">Created at</string>
+    <string name="issue_user_title">Issue user title</string>
+    <string name="description_user_issue">Description user issue</string>
+    <string name="data_issue_created">Data issue created</string>
 </resources>

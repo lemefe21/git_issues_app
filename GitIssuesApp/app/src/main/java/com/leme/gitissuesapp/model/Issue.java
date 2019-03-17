@@ -7,8 +7,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Issue implements Parcelable {
 
-    @SerializedName("url")
-    private String url;
+    @SerializedName("html_url")
+    private String html_url;
 
     @SerializedName("id")
     private long id;
@@ -29,7 +29,7 @@ public class Issue implements Parcelable {
     private String body;
 
     public Issue(Parcel in) {
-        this.url = in.readString();
+        this.html_url = in.readString();
         this.id = in.readLong();
         this.title = in.readString();
         this.user = in.readParcelable(User.class.getClassLoader());
@@ -39,7 +39,7 @@ public class Issue implements Parcelable {
     }
 
     public String getUrl() {
-        return url;
+        return html_url;
     }
 
     public long getId() {
@@ -73,7 +73,7 @@ public class Issue implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(url);
+        parcel.writeString(html_url);
         parcel.writeLong(id);
         parcel.writeString(title);
         parcel.writeParcelable(user, flags);
