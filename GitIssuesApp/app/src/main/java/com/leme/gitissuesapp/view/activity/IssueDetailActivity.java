@@ -20,10 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class IssueDetailActivity extends AppCompatActivity implements IssueDetailContract.View {
 
-    //TODO implement more styles in style.xml
-    //TODO implement dimens.xml
-    //TODO implement click to open url in browser
-    //TODO implement Dagger2
     //TODO Create SplashScreen
     //TODO implement unit tests
 

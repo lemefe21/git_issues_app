@@ -11,17 +11,34 @@ import android.widget.Toast;
 import com.leme.gitissuesapp.R;
 import com.leme.gitissuesapp.adapter.IssueItemAdapter;
 import com.leme.gitissuesapp.contract.MainContract;
+import com.leme.gitissuesapp.di.AppComponent;
+import com.leme.gitissuesapp.di.AppModule;
+import com.leme.gitissuesapp.di.DaggerAppComponent;
 import com.leme.gitissuesapp.presenter.MainPresenter;
 import com.leme.gitissuesapp.model.Issue;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, IssueItemAdapter.IssueItemAdapterOnClickHandle {
 
-    private MainPresenter mPresenter;
+    private AppComponent mAppComponent;
+
+    //@Inject
+    MainPresenter mPresenter;
+
+   /*public MainActivity() {
+        mAppComponent = DaggerAppComponent
+                .builder()
+                .appModule(new AppModule(this))
+                .build();
+        mAppComponent.inject(this);
+    }*/
+
     private IssueItemAdapter mIssueItemAdapter;
 
     @BindView(R.id.activity_main_rv_issues_list)

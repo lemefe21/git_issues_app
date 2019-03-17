@@ -1,6 +1,5 @@
 package com.leme.gitissuesapp.presenter;
 
-import android.content.Context;
 import android.content.Intent;
 
 import com.leme.gitissuesapp.contract.MainContract;
