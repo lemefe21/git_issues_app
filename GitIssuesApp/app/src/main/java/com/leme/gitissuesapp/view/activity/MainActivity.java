@@ -84,5 +84,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void onClick(Issue issueClicked) {
         Toast.makeText(this, "Issue user login: " + issueClicked.getUser().getLogin(), Toast.LENGTH_SHORT).show();
+        mPresenter.goToDetailsActivity(this, issueClicked);
     }
 }

@@ -1,9 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".view.activity.IssueDetailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/padding_detail_layout" >
+
+        <View
+            android:id="@+id/detail_issue_activity_iv_banner"
+            android:layout_width="@dimen/default_match_constraint"
+            android:layout_height="@dimen/size_detail_banner_height"
+            android:background="@color/colorSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/detail_issue_activity_iv_user_avatar"
+            android:layout_width="@dimen/size_detail_avatar"
+            android:layout_height="@dimen/size_detail_avatar"
+            android:src="@drawable/default_avatar"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="@dimen/border_detail_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_issue_activity_iv_banner"
+            app:layout_constraintEnd_toEndOf="@+id/detail_issue_activity_iv_banner"
+            app:layout_constraintStart_toStartOf="@+id/detail_issue_activity_iv_banner"
+            app:layout_constraintTop_toTopOf="@+id/detail_issue_activity_iv_banner" />
+
+        <TextView
+            android:id="@+id/detail_issue_activity_tv_detail_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_detail_user_login"
+            android:text="@string/user_login"
+            android:textAllCaps="true"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/font_user_login_detail"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_issue_activity_iv_banner" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/detail_issue_activity_iv_second_banner"
+            android:layout_width="@dimen/default_match_constraint"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_sides_detail_card"
+            android:layout_marginTop="@dimen/margin_top_detail_card"
+            android:layout_marginRight="@dimen/margin_sides_detail_card"
+            app:cardBackgroundColor="@color/colorPrimaryLight"
+            app:cardCornerRadius="@dimen/radius_detail_card_corner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detail_issue_activity_tv_detail_login" >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/padding_left_top_detail_card"
+                android:paddingTop="@dimen/padding_left_top_detail_card"
+                android:paddingRight="@dimen/padding_right_bottom_detail_card"
+                android:paddingBottom="@dimen/padding_right_bottom_detail_card">
+
+                <ImageView
+                    android:id="@+id/iv_issue_icon_state"
+                    android:layout_width="@dimen/size_detail_icon_state"
+                    android:layout_height="@dimen/size_detail_icon_state"
+                    android:src="@drawable/ic_lock_open_green_48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_state"
+                    android:layout_width="@dimen/default_match_constraint"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_detail_title"
+                    android:textAllCaps="true"
+                    android:text="@string/label_detail_issue_state"
+                    android:textColor="@color/colorSecondaryLight"
+                    android:textSize="@dimen/font_title_detail"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_issue_icon_state"
+                    app:layout_constraintStart_toEndOf="@+id/iv_issue_icon_state"
+                    app:layout_constraintTop_toTopOf="@+id/iv_issue_icon_state" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_title_label"
+                    style="@style/DetailsDataTitle"
+                    android:text="@string/title"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_state"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_issue_icon_state" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_title"
+                    style="@style/DetailsDataSubTitle"
+                    android:text="@string/issue_user_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_title_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_title_label" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_body_label"
+                    style="@style/DetailsDataTitle"
+                    android:text="@string/description"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_title"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_title" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_body"
+                    style="@style/DetailsDataSubTitle"
+                    android:text="@string/description_user_issue"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_body_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_body_label" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_created_date_label"
+                    style="@style/DetailsDataTitle"
+                    android:text="@string/created_at"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_body"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_body" />
+
+                <TextView
+                    android:id="@+id/tv_detail_issue_created_date"
+                    style="@style/DetailsDataSubTitle"
+                    android:layout_width="wrap_content"
+                    android:text="@string/data_issue_created"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_created_date_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_created_date_label" />
+
+                <Button
+                    android:id="@+id/detail_issue_button_to_url"
+                    android:layout_width="@dimen/default_match_constraint"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_detail_button"
+                    android:background="@drawable/button_selection_open"
+                    android:text="@string/open_url_issue_github"
+                    android:textColor="@color/colorText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_created_date"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_created_date"
+                    android:onClick="openUrlUser"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

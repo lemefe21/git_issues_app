@@ -1,9 +1,6 @@
 package com.leme.gitissuesapp.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -58,8 +55,8 @@ public class IssueItemAdapter extends RecyclerView.Adapter<IssueItemAdapter.Issu
 
         issueViewHolder.mUserLoginTextView.setText(user.getLogin());
         issueViewHolder.mIssueTitleTextView.setText(issue.getTitle());
-        issueViewHolder.mIssueIconStateImageView.setImageResource(IssueUtil.setIconState(state));
-        issueViewHolder.mIssueItemDivider.setBackgroundColor(ContextCompat.getColor(mContext, IssueUtil.setDividerState(state)));
+        issueViewHolder.mIssueIconStateImageView.setImageResource(IssueUtil.getResourceByIconState(state));
+        issueViewHolder.mIssueItemDivider.setBackgroundColor(ContextCompat.getColor(mContext, IssueUtil.getResourceByDetailStateColor(state)));
 
         Picasso.with(mContext)
                 .load(user.getAvatar_url())

@@ -1,8 +1,7 @@
 package com.leme.gitissuesapp.contract;
 
-import android.content.Context;
-
 import com.leme.gitissuesapp.model.Issue;
+import com.leme.gitissuesapp.view.activity.MainActivity;
 
 import java.util.List;
 
@@ -32,7 +31,7 @@ public interface MainContract {
 
         void onDestroy();
         void requestDataFromServer();
-        void goToDetailsActivity(Context context, Issue issue);
+        void goToDetailsActivity(MainActivity mainActivity, Issue issue);
 
     }
 

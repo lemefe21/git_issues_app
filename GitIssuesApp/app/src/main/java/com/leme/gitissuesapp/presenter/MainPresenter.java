@@ -8,11 +8,13 @@ import com.leme.gitissuesapp.handler.ExceptionHandler;
 import com.leme.gitissuesapp.service.MainService;
 import com.leme.gitissuesapp.model.Issue;
 import com.leme.gitissuesapp.view.activity.IssueDetailActivity;
+import com.leme.gitissuesapp.view.activity.MainActivity;
 
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.Service.RequestListener {
 
+    public static final String ISSUE = "main_list_issue_clicked";
     private MainContract.View view;
     private MainContract.Service service;
 
@@ -49,9 +51,11 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
     }
 
     @Override
-    public void goToDetailsActivity(Context context, Issue issue) {
+    public void goToDetailsActivity(MainActivity mainActivity, Issue issue) {
 
-        Intent intent = new Intent(context, IssueDetailActivity.class);
+        Intent intent = new Intent(mainActivity, IssueDetailActivity.class);
+        intent.putExtra(ISSUE, issue);
+        mainActivity.startActivity(intent);
 
     }
 
