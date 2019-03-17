@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorSecondaryDark</item>
     </style>
 
+    <style name="DetailsData">
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="DetailsDataTitle" parent="DetailsData">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_detail_title</item>
+        <item name="android:textSize">@dimen/font_title_detail</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DetailsDataSubTitle" parent="DetailsData">
+        <item name="android:layout_width">@dimen/size_detail_text_subtitle</item>
+        <item name="android:layout_height">@dimen/default_match_constraint</item>
+        <item name="android:textSize">@dimen/font_subtitle_detail</item>
+    </style>
+
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -10,9 +9,9 @@
         android:id="@+id/cv_issue_item"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/margin_main_card_list"
         app:cardBackgroundColor="@color/colorPrimaryLight"
-        app:cardCornerRadius="5dp"
+        app:cardCornerRadius="@dimen/radius_main_card_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,13 +21,13 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp">
+            android:padding="@dimen/padding_main_card">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_issue_item_user_avatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:civ_border_width="1dp"
+                android:layout_width="@dimen/size_main_card_list_avatar"
+                android:layout_height="@dimen/size_main_card_list_avatar"
+                app:civ_border_width="@dimen/border_main_card_list_avatar"
                 app:civ_border_color="@color/colorPrimary"
                 android:src="@drawable/default_avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -40,34 +39,34 @@
                 android:id="@+id/tv_issue_item_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="t-kameyama"
+                android:layout_marginLeft="@dimen/margin_main_card_list"
+                android:text="@string/user_login"
                 android:textAllCaps="true"
                 android:textColor="@color/colorText"
-                android:textSize="14sp"
+                android:textSize="@dimen/font_title_main_card_list"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/iv_issue_item_user_avatar"
                 app:layout_constraintTop_toTopOf="@+id/iv_issue_item_user_avatar" />
 
             <TextView
                 android:id="@+id/tv_issue_item_title"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/default_match_constraint"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Replace return with 'if' expression "
+                android:layout_marginTop="@dimen/margin_main_top_card_list"
+                android:layout_marginEnd="@dimen/margin_main_card_list"
+                android:layout_marginRight="@dimen/margin_main_card_list"
+                android:text="@string/issue_title"
                 android:textColor="@color/colorText"
-                android:textSize="12sp"
+                android:textSize="@dimen/font_subtitle_main_card_list"
                 app:layout_constraintEnd_toStartOf="@+id/view_issue_item_divider"
                 app:layout_constraintStart_toStartOf="@+id/tv_issue_item_login"
                 app:layout_constraintTop_toBottomOf="@+id/tv_issue_item_login" />
 
             <View
                 android:id="@+id/view_issue_item_divider"
-                android:layout_width="2dp"
-                android:layout_height="0dp"
-                android:layout_marginRight="8dp"
+                android:layout_width="@dimen/size_main_card_divider_width"
+                android:layout_height="@dimen/size_main_card_divider_height"
+                android:layout_marginRight="@dimen/margin_main_card_list"
                 android:background="@color/colorSecondaryLight"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/iv_issue_icon_state"
@@ -75,10 +74,10 @@
 
             <ImageView
                 android:id="@+id/iv_issue_icon_state"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_width="@dimen/size_main_card_list_icon_state"
+                android:layout_height="@dimen/size_main_card_list_icon_state"
+                android:layout_marginRight="@dimen/margin_main_card_list"
+                android:layout_marginLeft="@dimen/margin_main_card_list"
                 android:src="@drawable/ic_lock_open_green_48dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_issue_item_login" />
