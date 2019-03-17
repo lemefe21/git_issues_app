@@ -4,7 +4,8 @@
     <string name="error_network">Problem in connecting to the data network.</string>
     <string name="error_unknown">Unfortunately the search has unknown issues.</string>
     <string name="label_issue_detail">Issues Detail</string>
-    <string name="label_detail_issue_state">Issue state: %1$d</string>
+    <string name="label_detail_issue_state">Issue state: %1$s</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="open_url_issue_github">Open Issue in Github</string>
 </resources>

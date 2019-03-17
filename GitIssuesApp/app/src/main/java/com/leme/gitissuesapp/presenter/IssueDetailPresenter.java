@@ -1,10 +1,12 @@
 package com.leme.gitissuesapp.presenter;
 
 import android.content.Intent;
+import android.widget.Toast;
 
-import com.leme.gitissuesapp.R;
 import com.leme.gitissuesapp.contract.IssueDetailContract;
 import com.leme.gitissuesapp.model.Issue;
+import com.leme.gitissuesapp.util.IssueUtil;
+import com.leme.gitissuesapp.view.activity.IssueDetailActivity;
 
 public class IssueDetailPresenter implements IssueDetailContract.Presenter {
 
@@ -24,10 +26,32 @@ public class IssueDetailPresenter implements IssueDetailContract.Presenter {
     public void getIntentExtras(Intent intent) {
 
         if(intent.hasExtra(MainPresenter.ISSUE)) {
-            issue = (Issue) intent.getSerializableExtra(MainPresenter.ISSUE);
+            issue = intent.getExtras().getParcelable(MainPresenter.ISSUE);
+
             view.setIssueDetailData(issue);
-            //view.setCurrentIconByState(R.drawable.ic_lock_open_green_48dp);
+
+            configureDetailsLayoutByIssueState(issue.getState());
         }
+
+    }
+
+    @Override
+    public void goToUrlUser(IssueDetailActivity issueDetailActivity) {
+        Toast.makeText(issueDetailActivity, issue.getUrl(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void configureDetailsLayoutByIssueState(String state) {
+
+        int iconResource = IssueUtil.getResourceByIconState(state);
+        int detailColorStateResource = IssueUtil.getResourceByDetailStateColor(state);
+        int bannerResource = IssueUtil.getResourceByBannerState(state);
+        int buttonResourceColor = IssueUtil.getResourceColorByButtonState(state);
+        int buttonResourceColorFont = IssueUtil.getResourceColorFontByButtonState(state);
+
+        view.setCurrentIconByState(iconResource);
+        view.setCurrentDetailColorByState(detailColorStateResource);
+        view.setCurrentBannerByState(bannerResource);
+        view.setCurrentButtonByState(buttonResourceColor, buttonResourceColorFont);
 
     }
 

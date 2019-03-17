@@ -1,5 +1,6 @@
 package com.leme.gitissuesapp.view.activity;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class IssueDetailActivity extends AppCompatActivity implements IssueDetailContract.View {
 
-    //TODO finish details
     //TODO implement more styles in style.xml
     //TODO implement dimens.xml
     //TODO implement click to open url in browser
@@ -77,6 +77,12 @@ public class IssueDetailActivity extends AppCompatActivity implements IssueDetai
     @Override
     public void setIssueDetailData(Issue issue) {
 
+        mTextViewDetailLogin.setText(issue.getUser().getLogin());
+        mTextViewDetailState.setText(getString(R.string.label_detail_issue_state, issue.getState()));
+        mTextViewDetailTitle.setText(issue.getTitle());
+        mTextViewDetailBody.setText(issue.getBody());
+        mTextViewDetailCreatedData.setText(issue.getCreated_at());
+
         Picasso.with(this)
                 .load(issue.getUser().getAvatar_url())
                 .placeholder(R.drawable.default_avatar)
@@ -88,6 +94,27 @@ public class IssueDetailActivity extends AppCompatActivity implements IssueDetai
     @Override
     public void setCurrentIconByState(int resource) {
         mImageViewIconState.setImageResource(resource);
+    }
+
+    @Override
+    public void setCurrentDetailColorByState(int resource) {
+        mTextViewDetailState.setTextColor(ContextCompat.getColor(this, resource));
+    }
+
+    @Override
+    public void setCurrentBannerByState(int resource) {
+        mViewDetailBanner.setBackgroundColor(ContextCompat.getColor(this, resource));
+    }
+
+    @Override
+    public void setCurrentButtonByState(int resourceColor, int resourceFontColor) {
+        mButtonToOpenUrlUser.setBackground(getResources().getDrawable(resourceColor));
+        mButtonToOpenUrlUser.setTextColor(ContextCompat.getColor(this, resourceFontColor));
+    }
+
+    @Override
+    public void openUrlUser(View view) {
+        mDetailPresenter.goToUrlUser(this);
     }
 
     @Override

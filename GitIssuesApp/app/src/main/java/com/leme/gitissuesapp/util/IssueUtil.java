@@ -4,7 +4,7 @@ import com.leme.gitissuesapp.R;
 
 public class IssueUtil {
 
-    public static int setIconState(String state) {
+    public static int getResourceByIconState(String state) {
 
         switch (state) {
             case "open":
@@ -19,7 +19,7 @@ public class IssueUtil {
 
     }
 
-    public static int setDividerState(String state) {
+    public static int getResourceByDetailStateColor(String state) {
 
         switch (state) {
             case "open":
@@ -33,4 +33,45 @@ public class IssueUtil {
         }
 
     }
+
+    public static int getResourceByBannerState(String state) {
+
+        switch (state) {
+            case "open":
+                return R.color.colorSecondary;
+            case "closed":
+                return R.color.colorAccentIssue;
+            case "all":
+                return R.color.colorText;
+            default:
+                return R.color.colorSecondary;
+        }
+
+    }
+
+    public static int getResourceColorByButtonState(String state) {
+
+        switch (state) {
+            case "open":
+                return R.drawable.button_selection_open;
+            case "closed":
+                return R.drawable.button_selection_closed;
+            case "all":
+                return R.drawable.button_selection_all;
+            default:
+                return R.drawable.button_selection_open;
+        }
+
+    }
+
+    public static int getResourceColorFontByButtonState(String state) {
+
+        if(state.equals("all")) {
+            return R.color.colorPrimary;
+        } else {
+            return R.color.colorText;
+        }
+
+    }
+
 }

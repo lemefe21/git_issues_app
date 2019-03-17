@@ -8,5 +8,8 @@
     <color name="colorSecondaryDark">#009624</color>
     <color name="colorAccentIssue">#dd2c00</color>
     <color name="colorAccentIssueLight">#ff6434</color>
+    <color name="colorAccentIssueDark">#a30000</color>
+    <color name="colorButtonStateAll">#9ea7aa</color>
+    <color name="colorButtonStateAllLight">#cfd8dc</color>
     <color name="colorText">#fafafa</color>
 </resources>

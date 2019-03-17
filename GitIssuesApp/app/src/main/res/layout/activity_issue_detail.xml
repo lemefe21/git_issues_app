@@ -16,7 +16,7 @@
         <View
             android:id="@+id/detail_issue_activity_iv_banner"
             android:layout_width="0dp"
-            android:layout_height="175dp"
+            android:layout_height="150dp"
             android:background="@color/colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -83,6 +83,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
+                    android:textAllCaps="true"
                     android:text="@string/label_detail_issue_state"
                     android:textColor="@color/colorSecondaryLight"
                     android:textSize="14sp"
@@ -133,8 +134,8 @@
                     android:text="Replace return with 'if' expression"
                     android:textColor="@color/colorText"
                     android:textSize="12sp"
-                    tools:layout_editor_absoluteX="56dp"
-                    tools:layout_editor_absoluteY="133dp" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_body_label"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_body_label" />
 
                 <TextView
                     android:id="@+id/tv_detail_issue_created_date_label"
@@ -163,13 +164,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:background="@drawable/button_selection"
-                    android:text="Go to web"
+                    android:background="@drawable/button_selection_open"
+                    android:text="@string/open_url_issue_github"
                     android:textColor="@color/colorText"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/tv_detail_issue_created_date"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_created_date" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_issue_created_date"
+                    android:onClick="openUrlUser"/>
 
             </android.support.constraint.ConstraintLayout>
 
