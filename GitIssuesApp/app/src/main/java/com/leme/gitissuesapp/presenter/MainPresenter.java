@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.Service.RequestListener {
 
-    private static final String ISSUE = "main_list_issue_clicked";
+    public static final String ISSUE = "main_list_issue_clicked";
     private MainContract.View view;
     private MainContract.Service service;
 
