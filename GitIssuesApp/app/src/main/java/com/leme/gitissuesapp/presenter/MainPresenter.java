@@ -13,6 +13,7 @@ import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter, MainContract.Service.RequestListener {
 
+    private static final String ISSUE = "main_list_issue_clicked";
     private MainContract.View view;
     private MainContract.Service service;
 
@@ -52,6 +53,8 @@ public class MainPresenter implements MainContract.Presenter, MainContract.Servi
     public void goToDetailsActivity(Context context, Issue issue) {
 
         Intent intent = new Intent(context, IssueDetailActivity.class);
+        intent.putExtra(ISSUE, issue);
+        context.startActivity(intent);
 
     }
 

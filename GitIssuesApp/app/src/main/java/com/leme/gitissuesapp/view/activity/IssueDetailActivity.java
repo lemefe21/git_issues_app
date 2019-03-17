@@ -11,5 +11,8 @@ public class IssueDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_issue_detail);
+
+        //TODO add scroll view in layout
+
     }
 }
