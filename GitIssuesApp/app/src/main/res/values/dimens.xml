@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- default dimens -->
+    <dimen name="default_match_constraint">0dp</dimen>
+    <dimen name="default_small_margin">4dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
+    <dimen name="default_large_margin">16dp</dimen>
+    <dimen name="default_extralarge_margin">24dp</dimen>
+    <dimen name="default_padding">8dp</dimen>
+    <dimen name="default_large_padding">16dp</dimen>
+    <dimen name="default_extralarge_padding">32dp</dimen>
+    <dimen name="default_size_icon_state">32dp</dimen>
+    <dimen name="default_subtitle_font">12sp</dimen>
+    <dimen name="default_title_font">14sp</dimen>
+    <dimen name="default_large_font">22sp</dimen>
+
+    <!-- main dimens -->
+    <dimen name="margin_main">@dimen/default_large_margin</dimen>
+
+    <!-- list card dimens -->
+    <dimen name="margin_main_top_card_list">@dimen/default_small_margin</dimen>
+    <dimen name="radius_main_card_corner">@dimen/default_small_margin</dimen>
+    <dimen name="margin_main_card_list">@dimen/default_margin</dimen>
+    <dimen name="padding_main_card">@dimen/default_padding</dimen>
+    <dimen name="size_main_card_list_icon_state">@dimen/default_size_icon_state</dimen>
+    <dimen name="size_main_card_list_avatar">50dp</dimen>
+    <dimen name="border_main_card_list_avatar">1dp</dimen>
+    <dimen name="font_subtitle_main_card_list">@dimen/default_subtitle_font</dimen>
+    <dimen name="font_title_main_card_list">@dimen/default_title_font</dimen>
+    <dimen name="size_main_card_divider_width">2dp</dimen>
+    <dimen name="size_main_card_divider_height">@dimen/default_match_constraint</dimen>
+
+    <!-- details dimens -->
+    <dimen name="padding_detail_layout">@dimen/default_extralarge_padding</dimen>
+    <dimen name="padding_left_top_detail_card">@dimen/default_large_padding</dimen>
+    <dimen name="padding_right_bottom_detail_card">@dimen/default_extralarge_padding</dimen>
+    <dimen name="size_detail_banner_height">150dp</dimen>
+    <dimen name="size_detail_avatar">100dp</dimen>
+    <dimen name="size_detail_text_subtitle">280dp</dimen>
+    <dimen name="border_detail_avatar">2dp</dimen>
+    <dimen name="margin_detail_user_login">@dimen/default_large_margin</dimen>
+    <dimen name="margin_sides_detail_card">@dimen/default_extralarge_margin</dimen>
+    <dimen name="margin_top_detail_card">@dimen/default_large_margin</dimen>
+    <dimen name="margin_detail_title">@dimen/default_margin</dimen>
+    <dimen name="margin_detail_button">@dimen/default_extralarge_margin</dimen>
+    <dimen name="radius_detail_card_corner">5dp</dimen>
+    <dimen name="font_user_login_detail">@dimen/default_large_font</dimen>
+    <dimen name="font_title_detail">@dimen/default_title_font</dimen>
+    <dimen name="font_subtitle_detail">@dimen/default_subtitle_font</dimen>
+    <dimen name="size_detail_icon_state">@dimen/default_size_icon_state</dimen>
+
+</resources>
