@@ -20,9 +20,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class IssueDetailActivity extends AppCompatActivity implements IssueDetailContract.View {
 
-    //TODO Create SplashScreen
-    //TODO implement unit tests
-
     private IssueDetailPresenter mDetailPresenter;
 
     @BindView(R.id.detail_issue_activity_iv_user_avatar)

@@ -12,21 +12,17 @@ import com.leme.gitissuesapp.R;
 import com.leme.gitissuesapp.adapter.IssueItemAdapter;
 import com.leme.gitissuesapp.contract.MainContract;
 import com.leme.gitissuesapp.di.AppComponent;
-import com.leme.gitissuesapp.di.AppModule;
-import com.leme.gitissuesapp.di.DaggerAppComponent;
 import com.leme.gitissuesapp.presenter.MainPresenter;
 import com.leme.gitissuesapp.model.Issue;
 
 import java.util.List;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View, IssueItemAdapter.IssueItemAdapterOnClickHandle {
 
-    private AppComponent mAppComponent;
+    //private AppComponent mAppComponent;
 
     //@Inject
     MainPresenter mPresenter;
@@ -100,7 +96,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void onClick(Issue issueClicked) {
-        Toast.makeText(this, "Issue user login: " + issueClicked.getUser().getLogin(), Toast.LENGTH_SHORT).show();
         mPresenter.goToDetailsActivity(this, issueClicked);
     }
 }

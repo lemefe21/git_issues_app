@@ -2,7 +2,6 @@ package com.leme.gitissuesapp.presenter;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.widget.Toast;
 
 import com.leme.gitissuesapp.contract.IssueDetailContract;
 import com.leme.gitissuesapp.model.Issue;

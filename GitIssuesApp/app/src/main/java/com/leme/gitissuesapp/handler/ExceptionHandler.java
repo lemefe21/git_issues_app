@@ -1,9 +1,7 @@
 package com.leme.gitissuesapp.handler;
 
 import com.leme.gitissuesapp.R;
-
 import java.io.IOException;
-
 import retrofit2.HttpException;
 
 public class ExceptionHandler {
